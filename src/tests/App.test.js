@@ -5,7 +5,7 @@ import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
 
-describe('Testes do requisito 1', () => {
+describe('Testes do requisito 1, componente App.js', () => {
   it('Testa se o 1º link possui o texto "Home"', () => {
     renderWithRouter(<App />);
     const linkNavigator = screen.getAllByRole('link');
@@ -50,5 +50,3 @@ describe('Testes do requisito 1', () => {
     expect(notFoundPage).toBeInTheDocument();
   });
 });
-
-/* npx stryker run ./stryker/nomeDoArquivo.conf.json */
