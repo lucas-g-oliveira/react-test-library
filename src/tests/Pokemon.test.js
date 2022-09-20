@@ -6,14 +6,9 @@ import App from '../App';
 describe('Testes do requisito 6 - componente <Pokemon.js />', () => {
   beforeEach(() => renderWithRouter(<App />));
 
-  it('Testa se é renderizado um card com as informações de determinado pokémon', () => {
-    const pokemonName = screen.getAllByTestId('pokemon-name');
-    expect(pokemonName).toHaveLength(1);
-  });
-
-  it(`Testa se o card do pokémon indicado na Pokédex contém um link de navegação para
-  exibirdetalhes deste pokémon`, () => {
-    const linkMoreInfo = screen.getByRole('link', { name: /more details/i });
-    expect(linkMoreInfo).toBeInTheDocument();
+  it('Testa o atributo "alt" do pokemon', () => {
+    const notFoundPage = screen.getByRole('img', {
+      name: /pikachu crying because the page requested was not found/i });
+    expect(notFoundPage).toHaveAttribute('src', 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif');
   });
 });
