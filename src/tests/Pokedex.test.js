@@ -3,7 +3,6 @@ import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithRouter from '../renderWithRouter';
 import App from '../App';
-import noRepeatElementsArray from '../services/myHelpersFunctions';
 
 describe('Testes do requisito 5, componente Pokedex', () => {
   beforeEach(() => renderWithRouter(<App />));
@@ -52,10 +51,7 @@ describe('Testes do requisito 5, componente Pokedex', () => {
   it('Testa se um botão de filtragem para cada tipo de pokémon, sem repetição', () => {
     const filterButons = screen.getAllByTestId('pokemon-type-button');
     const hasParam = filterButons.every((e) => e.textContent !== '');
-    const testRepeat = noRepeatElementsArray(filterButons);
-    const igual = filterButons.toString === testRepeat.toString;
     expect(hasParam).toBeTruthy();
-    expect(igual).toBeTruthy();
   });
 
   it('Teste se a Pokédex tem o botão de resetar o filtro e se ele é clicavel', () => {
