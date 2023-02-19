@@ -9,10 +9,12 @@ test('Teste do componente <PokemonDetails.js />', () => {
   const linkMoreDeatails = screen.getByRole('link', { name: /more details/i });
   userEvent.click(linkMoreDeatails);
 
+  const summaryP = screen.getByText(/this intelligent pokémon roasts hard/i);
   const pokFavorited = screen.getByText(/pokémon favoritado\?/i);
+
   const allH2 = screen.getAllByRole('heading', { level: 2 })
     .every((e) => e.textContent !== '');
-  const summaryP = screen.getByText(/this intelligent pokémon roasts hard/i);
+
   const mapsSRC = screen.getAllByRole('img')
     .every((e) => e.getAttribute('src') !== '' && e.getAttribute('alt') !== '');
 
